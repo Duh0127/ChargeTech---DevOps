@@ -1,0 +1,8 @@
+rg=rg-app-chargetech &&
+location=brazilsouth &&
+appServicePlanName=planChargeTech &&
+webAppName=chargetechWebapp &&
+sku=F1 &&
+az group create --name $rg --location $location &&
+az appservice plan create -n $appServicePlanName --location $location -g $rg --sku $sku &&
+az webapp create -g $rg -p $appServicePlanName --runtime "JAVA:17" -n $webAppName
